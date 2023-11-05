@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     unique: true,
   },
   password: { type: String, required: true },
-  status: { type: String },
+  status: {
+    type: String,
+    enum: ['Visitor', 'Member', 'Admin'],
+    default: 'Visitor',
+  },
 });
 
 // Virtual for URL
