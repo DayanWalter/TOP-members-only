@@ -11,3 +11,9 @@ exports.index = asyncHandler(async (req, res, next) => {
     title: 'Members Only Home',
   });
 });
+// Display Sign Up
+exports.sign_up_get = asyncHandler(async (req, res, next) => {
+  res.render('sign_up', {
+    title: 'Please Sign Up',
+  });
+});
