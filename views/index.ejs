@@ -8,10 +8,105 @@
     <main>
       <h1><%= title%></h1>
 
-      <form method="POST" action="">
-        <label for="input">Input:</label>
-        <input type="text" id="input" name="input" />
-        <button type="submit">Submit</button>
+      <form>
+        <div class="mb-3">
+          <label for="first_name" class="form-label">First Name: </label>
+
+          <input
+            type="text"
+            name="first_name"
+            id="first_name"
+            placeholder="John"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="last_name" class="form-label">Last Name: </label>
+          <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            placeholder="Doe"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Username: </label>
+
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="CalmLux23"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password: </label>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label"
+            >Confirm Password:
+          </label>
+
+          <input
+            type="confirmpassword"
+            name="confirmpassword"
+            id="confirmpassword"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="membership" class="form-label"
+            >Membership Password:
+          </label>
+
+          <input
+            type="text"
+            name="membership"
+            id="membership"
+            placeholder="Leave Empty for view only"
+            class="form-control"
+          />
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </form>
+      <!-- BOOTSTRAP -->
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </main>
     <footer><%- include("./partials/footer"); %></footer>
