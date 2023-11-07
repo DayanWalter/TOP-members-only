@@ -74,3 +74,15 @@ exports.sign_up_post = [
     });
   }),
 ];
+
+// Display Sign In
+exports.sign_in_get = asyncHandler(async (req, res, next) => {
+  res.render('sign_in', {
+    title: 'Please Sign In',
+    errors: '',
+  });
+});
+// Sign-In POST
+exports.sign_in_post = asyncHandler(async (req, res, next) => {
+  res.send('sign_in_post');
+});

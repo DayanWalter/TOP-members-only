@@ -7,7 +7,11 @@ const message_controller = require('../controllers/messageController');
 router.get('/', user_controller.index);
 // GET Signup
 router.get('/signup', user_controller.sign_up_get);
-//POST Signup
+// POST Signup
 router.post('/signup', user_controller.sign_up_post);
+// GET Signin
+router.get('/signin', user_controller.sign_in_get);
+// POST Signin
+router.post('/signin', user_controller.sign_in_post);
 
 module.exports = router;
