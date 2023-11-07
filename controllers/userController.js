@@ -20,6 +20,7 @@ exports.sign_up_get = asyncHandler(async (req, res, next) => {
   res.render('sign_up', {
     title: 'Please Sign Up',
     errors: '',
+    user: req.user,
   });
 });
 
@@ -82,6 +83,7 @@ exports.sign_in_get = asyncHandler(async (req, res, next) => {
   res.render('sign_in', {
     title: 'Please Sign In',
     errors: '',
+    user: req.user,
   });
 });
 // Sign-In POST
@@ -105,7 +107,8 @@ exports.logged_in = asyncHandler(async (req, res, next) => {
 // Display Change status
 exports.change_status_get = asyncHandler(async (req, res, next) => {
   res.render('change_status', {
-    title: 'Please Sign Up',
+    title: 'Change Status',
     errors: '',
+    user: req.user,
   });
 });

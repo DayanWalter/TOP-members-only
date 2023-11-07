@@ -1,4 +1,10 @@
 <a href="/">Home</a>
+<% if(!user){%>
+
 <a href="/signup">Sign Up</a>
 <a href="/signin">Sign In</a>
+
+<% } %> <% if(user){ %>
 <a href="/changestatus">Change Status</a>
+
+<% } %>
