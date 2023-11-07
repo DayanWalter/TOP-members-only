@@ -102,3 +102,10 @@ exports.log_out = (req, res, next) => {
 exports.logged_in = asyncHandler(async (req, res, next) => {
   res.render('logged_in', { title: 'Welcome!', user: req.user });
 });
+// Display Change status
+exports.change_status_get = asyncHandler(async (req, res, next) => {
+  res.render('change_status', {
+    title: 'Please Sign Up',
+    errors: '',
+  });
+});
