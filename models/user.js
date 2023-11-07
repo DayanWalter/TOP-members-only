@@ -22,7 +22,7 @@ const UserSchema = new Schema({
 
 // Virtual for URL
 UserSchema.virtual('url').get(function () {
-  return `/placeholder/${this._id}`;
+  return `/user/${this._id}`;
 });
 
 // Virtual for fullname

@@ -1,6 +1,16 @@
 <h1><%= title%></h1>
 
 <div class="formcontainer">
+  <!-- HIER EINFÜGEN? -->
+  <% if (errors) { %>
+  <ul class="error-list">
+    <% errors.forEach(function(error) { %>
+    <li><%= error.msg %></li>
+    <% }); %>
+  </ul>
+  <% } %>
+  <!-- HIER ZUENDE? -->
+
   <form action="" method="POST">
     <div class="mb-3">
       <label for="first_name" class="form-label">First Name: </label>
@@ -11,6 +21,7 @@
         id="first_name"
         placeholder="John"
         class="form-control"
+        value="<%= (typeof user === 'undefined' ? '' : user.first_name) %>"
       />
     </div>
 
@@ -22,6 +33,7 @@
         id="last_name"
         placeholder="Doe"
         class="form-control"
+        value="<%= (typeof user === 'undefined' ? '' : user.last_name) %>"
       />
     </div>
 
@@ -34,6 +46,7 @@
         id="username"
         placeholder="CalmLux23"
         class="form-control"
+        value="<%= (typeof user === 'undefined' ? '' : user.username) %>"
       />
     </div>
 
