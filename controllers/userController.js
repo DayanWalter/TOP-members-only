@@ -2,6 +2,7 @@ const User = require('../models/user');
 const Message = require('../models/message');
 
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 const { body, validationResult } = require('express-validator');
 
@@ -75,7 +76,7 @@ exports.sign_up_post = [
   }),
 ];
 
-// Display Sign In
+// Display Sign-In
 exports.sign_in_get = asyncHandler(async (req, res, next) => {
   res.render('sign_in', {
     title: 'Please Sign In',
@@ -83,6 +84,7 @@ exports.sign_in_get = asyncHandler(async (req, res, next) => {
   });
 });
 // Sign-In POST
-exports.sign_in_post = asyncHandler(async (req, res, next) => {
-  res.send('sign_in_post');
+exports.sign_in_post = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/signin',
 });
