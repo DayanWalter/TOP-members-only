@@ -62,7 +62,7 @@ exports.sign_up_post = [
       if (result.isEmpty()) {
         // Save user to DB if no result
         await user.save();
-        res.redirect(user.url);
+        res.redirect('/signin');
       } else {
         // Display every error separately
         result.array().map((error) => console.log(error.msg));
@@ -86,7 +86,7 @@ exports.sign_in_get = asyncHandler(async (req, res, next) => {
 });
 // Sign-In POST
 exports.sign_in_post = passport.authenticate('local', {
-  successRedirect: '/',
+  successRedirect: '/loggedin',
   failureRedirect: '/signin',
 });
 // Log-Out
@@ -98,3 +98,7 @@ exports.log_out = (req, res, next) => {
     res.redirect('/');
   });
 };
+// Logged In
+exports.logged_in = asyncHandler(async (req, res, next) => {
+  res.render('logged_in', { title: 'Welcome!', user: req.user });
+});
