@@ -34,9 +34,9 @@ exports.sign_up_post = [
     .trim()
     .isLength({ min: 3 })
     .escape(),
-  body('username', 'Username must not be empty')
+  body('username', 'Username to short(min 3)/long(max 15)')
     .trim()
-    .isLength({ min: 1, max: 15 })
+    .isLength({ min: 3, max: 15 })
     .escape(),
   body('password', 'Password too short(min 3)').isLength({
     min: 3,
