@@ -12,6 +12,7 @@ const asyncHandler = require('express-async-handler');
 exports.index = asyncHandler(async (req, res, next) => {
   res.render('index', {
     title: 'Members Only Home',
+    user: req.user,
   });
 });
 // Display Sign Up
@@ -88,3 +89,12 @@ exports.sign_in_post = passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/signin',
 });
+// Log-Out
+exports.log_out = (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+};

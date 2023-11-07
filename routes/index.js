@@ -13,5 +13,7 @@ router.post('/signup', user_controller.sign_up_post);
 router.get('/signin', user_controller.sign_in_get);
 // POST Signin
 router.post('/signin', user_controller.sign_in_post);
+// Log-Out
+router.get('/logout', user_controller.log_out);
 
 module.exports = router;
