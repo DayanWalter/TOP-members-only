@@ -7,17 +7,8 @@
     <div class="site">
       <header><%- include("./partials/header"); %></header>
       <main>
-        <% if (user.status === "Visitor") {%>
-        <h1>Welcome Visitor <%= user.username %>!</h1>
+        <h1>Welcome <%= user.status %> <%= user.username %>!</h1>
         <a href="/logout">LOG OUT</a>
-        <% } if(user.status === "Member") { %>
-        <h1>Welcome Member <%= user.username %>!</h1>
-        <a href="/logout">LOG OUT</a>
-        <% } if(user.status === "Admin") { %>
-        <h1>Welcome Admin <%= user.username %>!</h1>
-        <a href="/logout">LOG OUT</a>
-
-        <%}%>
       </main>
       <footer><%- include("./partials/footer"); %></footer>
     </div>

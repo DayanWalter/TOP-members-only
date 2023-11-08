@@ -19,5 +19,6 @@ router.get('/logout', user_controller.log_out);
 router.get('/loggedin', user_controller.logged_in);
 // GET Change Status
 router.get('/changestatus', user_controller.change_status_get);
-
+// POST Change Status
+router.post('/changestatus', user_controller.change_status_post);
 module.exports = router;

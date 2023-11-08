@@ -106,9 +106,42 @@ exports.logged_in = asyncHandler(async (req, res, next) => {
 });
 // Display Change status
 exports.change_status_get = asyncHandler(async (req, res, next) => {
+  console.log(req.user);
   res.render('change_status', {
     title: 'Change Status',
     errors: '',
     user: req.user,
   });
+});
+
+// Change Status POST
+exports.change_status_post = asyncHandler(async (req, res, next) => {
+  if (req.body.status === 'Member1') {
+    let user = new User({
+      status: 'Member',
+      _id: req.user.id,
+    });
+    await User.findByIdAndUpdate(req.user.id, user, {});
+    res.redirect('/');
+  } else if (req.body.status === 'Admin1') {
+    let user = new User({
+      status: 'Admin',
+      _id: req.user.id,
+    });
+    await User.findByIdAndUpdate(req.user.id, user, {});
+    res.redirect('/');
+  } else if (req.body.status === 'Visitor1') {
+    let user = new User({
+      status: 'Visitor',
+      _id: req.user.id,
+    });
+    await User.findByIdAndUpdate(req.user.id, user, {});
+    res.redirect('/');
+  } else {
+    let user = new User({
+      _id: req.user.id,
+    });
+    await User.findByIdAndUpdate(req.user.id, user, {});
+    res.redirect('/');
+  }
 });
