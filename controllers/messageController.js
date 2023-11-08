@@ -8,9 +8,13 @@ const { body, validationResult } = require('express-validator');
 
 const asyncHandler = require('express-async-handler');
 
+// Display Message List
 exports.index = asyncHandler(async (req, res, next) => {
+  const allMessages = await Message.find().populate('user').exec();
+
   res.render('messages', {
     title: 'Messages',
+    message_list: allMessages,
     user: req.user,
   });
 });

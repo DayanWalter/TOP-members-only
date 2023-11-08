@@ -22,7 +22,9 @@ MessageSchema.virtual('url').get(function () {
 // Virtual for formatted timestamp
 MessageSchema.virtual('timestamp_formatted').get(function () {
   // We don't use an arrow function as we'll need the this object
-  return DateTime.fromJSDate(this.timestamp).toLocaleString(DateTime.DATE_MED);
+  return DateTime.fromJSDate(this.timestamp).toLocaleString(
+    DateTime.DATETIME_MED
+  );
 });
 
 module.exports = mongoose.model('Message', MessageSchema);

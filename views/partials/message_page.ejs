@@ -1,10 +1,28 @@
-<% if (user) {%>
+<% if (user.status === "Member" || user.status === "Admin") {%>
 <h1>Welcome <%= user.status %> <%= user.username %>!</h1>
-<h2>This is a placeholder for the table of messages</h2>
+<ul class="list-group">
+  <% message_list.forEach((message) => {%>
+  <li class="list-group-item">
+    <%=message.user.username%> wrote @ <%= message.timestamp_formatted%>
+    <br />
+    <div class="textContainer"><%= message.text%></div>
+  </li>
+  <% console.log(message)})%>
+</ul>
 <a href="/new">New Message</a>
 <a href="/logout">LOG OUT</a>
 <% } else { %>
 
-<h1>Welcome!</h1>
-
+<h1>Welcome <%= user.status %> <%= user.username %>!</h1>
+<ul class="list-group">
+  <% message_list.reverse().forEach((message) => {%>
+  <li class="list-group-item">
+    UNKNOWN wrote @ UNKNOWN
+    <br />
+    <div class="textContainer"><%= message.text%></div>
+  </li>
+  <% console.log(message)})%>
+</ul>
+<a href="/new">New Message</a>
+<a href="/logout">LOG OUT</a>
 <%}%>
