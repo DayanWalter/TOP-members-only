@@ -30,4 +30,6 @@ router.get('/messages', message_controller.index);
 // GET Message
 router.get('/new', message_controller.new_message_get);
 
+// POST Message
+router.post('/new', message_controller.new_message_post);
 module.exports = router;
