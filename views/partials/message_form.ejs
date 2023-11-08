@@ -1,0 +1,24 @@
+<h1><%= title%></h1>
+<div class="formcontainer">
+  <form action="/signin" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        name="title"
+        placeholder="A new beginning..."
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="text" class="form-label">Text</label>
+      <textarea
+        name="text"
+        placeholder="A long time ago, i was watching..."
+        type="text"
+        class="form-control"
+      ></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+  </form>
+</div>

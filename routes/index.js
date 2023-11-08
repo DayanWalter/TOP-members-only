@@ -3,7 +3,9 @@ const router = express.Router();
 
 const user_controller = require('../controllers/userController');
 const message_controller = require('../controllers/messageController');
-/* GET home page. */
+
+/// USER ///
+// GET home page
 router.get('/', user_controller.index);
 // GET Signup
 router.get('/signup', user_controller.sign_up_get);
@@ -21,4 +23,11 @@ router.get('/loggedin', user_controller.logged_in);
 router.get('/changestatus', user_controller.change_status_get);
 // POST Change Status
 router.post('/changestatus', user_controller.change_status_post);
+
+/// MESSAGE ///
+router.get('/messages', message_controller.index);
+
+// GET Message
+router.get('/new', message_controller.new_message_get);
+
 module.exports = router;

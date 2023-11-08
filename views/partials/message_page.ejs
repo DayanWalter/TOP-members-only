@@ -1,0 +1,10 @@
+<% if (user) {%>
+<h1>Welcome <%= user.status %> <%= user.username %>!</h1>
+<h2>This is a placeholder for the table of messages</h2>
+<a href="/new">New Message</a>
+<a href="/logout">LOG OUT</a>
+<% } else { %>
+
+<h1>Welcome!</h1>
+
+<%}%>
