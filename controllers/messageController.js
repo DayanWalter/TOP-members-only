@@ -48,3 +48,18 @@ exports.new_message_post = [
     }
   }),
 ];
+// GET Delete Message
+exports.message_delete_get = asyncHandler(async (req, res, next) => {
+  const message = await Message.findById(req.params.id).exec();
+
+  res.render('message_delete', {
+    title: 'Delete Message',
+    user: req.user,
+    message,
+  });
+});
+
+exports.message_delete_post = asyncHandler(async (req, res, next) => {
+  await Message.findByIdAndRemove(req.body.messageid);
+  res.redirect('/shop/items');
+});

@@ -26,10 +26,13 @@ router.post('/changestatus', user_controller.change_status_post);
 
 /// MESSAGE ///
 router.get('/messages', message_controller.index);
-
 // GET Message
 router.get('/new', message_controller.new_message_get);
-
 // POST Message
 router.post('/new', message_controller.new_message_post);
+// GET Delete Message
+router.get('/delete/:id', message_controller.message_delete_get);
+// POST Delete Message
+router.post('/delete/:id', message_controller.message_delete_post);
+
 module.exports = router;

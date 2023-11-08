@@ -6,8 +6,12 @@
     <%=message.user.username%> wrote @ <%= message.timestamp_formatted%>
     <br />
     <div class="textContainer"><%= message.text%></div>
+    <% if(user.status === "Admin"){%>
+    <a href="/delete/<%= message._id%>">DELETE</a>
+
+    <%}%>
   </li>
-  <% console.log(message)})%>
+  <%})%>
 </ul>
 <a href="/new">New Message</a>
 <a href="/logout">LOG OUT</a>
