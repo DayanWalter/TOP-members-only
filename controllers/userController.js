@@ -97,7 +97,10 @@ exports.log_out = (req, res, next) => {
     if (err) {
       return next(err);
     }
-    res.redirect('/');
+    res.render('logged_out', {
+      title: 'Bye! :)',
+      user: req.user,
+    });
   });
 };
 // Logged In
