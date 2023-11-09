@@ -1,5 +1,12 @@
 <h1><%= title%></h1>
 <div class="formcontainer">
+  <% if (errors) { %>
+  <ul class="error-list">
+    <% errors.forEach(function(error) { %>
+    <li><%= error.msg %></li>
+    <% }); %>
+  </ul>
+  <% } %>
   <form action="" method="POST">
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>

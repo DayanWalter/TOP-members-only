@@ -22,6 +22,7 @@ exports.index = asyncHandler(async (req, res, next) => {
 exports.new_message_get = asyncHandler(async (req, res, next) => {
   res.render('message', {
     title: 'New Message',
+    errors: '',
     user: req.user,
   });
 });
@@ -35,6 +36,7 @@ exports.new_message_post = [
   // Process after validation and sanitization
   asyncHandler(async (req, res, next) => {
     const result = validationResult(req);
+
     console.log(req.body.title);
     const message = new Message({
       title: req.body.title,
@@ -45,6 +47,13 @@ exports.new_message_post = [
     if (result.isEmpty()) {
       await message.save();
       res.redirect('/messages');
+    } else {
+      res.render('message', {
+        title: 'Please change input',
+        errors: result.array(),
+        user: req.user,
+        message,
+      });
     }
   }),
 ];
