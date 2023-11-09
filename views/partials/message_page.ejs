@@ -1,32 +1,43 @@
 <% if (user.status === "Member" || user.status === "Admin") {%>
 <h1>Welcome <%= user.status %> <%= user.username %>!</h1>
-<ul class="list-group">
-  <% message_list.forEach((message) => {%>
-  <li class="list-group-item">
-    <%=message.user.username%> wrote @ <%= message.timestamp_formatted%>
-    <br />
-    <div class="textContainer"><%= message.text%></div>
-    <% if(user.status === "Admin"){%>
-    <a href="/delete/<%= message._id%>">DELETE</a>
-
-    <%}%>
-  </li>
-  <%})%>
-</ul>
 <a href="/new">New Message</a>
+
+<div class="list-container">
+  <ul class="list-group">
+    <% if(message_list.length === 0){%>
+    <h2>Nothing here, be the first!</h2>
+
+    <%}%> <% message_list.reverse().forEach((message) => {%>
+    <li class="list-group-item">
+      <%=message.user.username%> wrote @ <%= message.timestamp_formatted%>
+      <br />
+      <div class="textContainer"><%= message.text%></div>
+      <% if(user.status === "Admin"){%>
+      <a href="/delete/<%= message._id%>">DELETE</a>
+
+      <%}%>
+    </li>
+    <%})%>
+  </ul>
+</div>
 <a href="/logout">LOG OUT</a>
 <% } else { %>
 
 <h1>Welcome <%= user.status %> <%= user.username %>!</h1>
-<ul class="list-group">
-  <% message_list.reverse().forEach((message) => {%>
-  <li class="list-group-item">
-    UNKNOWN wrote @ UNKNOWN
-    <br />
-    <div class="textContainer"><%= message.text%></div>
-  </li>
-  <% console.log(message)})%>
-</ul>
 <a href="/new">New Message</a>
+<div class="list-container">
+  <ul class="list-group">
+    <% if(message_list.length === 0){%>
+    <h2>Nothing here, be the first!</h2>
+
+    <%}%> <% message_list.reverse().forEach((message) => {%>
+    <li class="list-group-item">
+      UNKNOWN wrote @ UNKNOWN
+      <br />
+      <div class="textContainer"><%= message.text%></div>
+    </li>
+    <% console.log(message)})%>
+  </ul>
+</div>
 <a href="/logout">LOG OUT</a>
 <%}%>

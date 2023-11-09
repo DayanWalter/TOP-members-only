@@ -1,16 +1,13 @@
 <h1><%= title%></h1>
-<div class="formcontainer">
+<h2>Do you really want to delete the message?</h2>
   <form action="" method="POST">
-    <div class="mb-3">
       <input
         id="messageid"
-        class="form-control"
         type="hidden"
         name="messageid"
         value="<%= message._id %>"
       />
-    </div>
 
-    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="submit" value="DELETE" class="btn btn-outline-danger" />
   </form>
 </div>
