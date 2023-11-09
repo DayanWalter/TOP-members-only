@@ -35,7 +35,7 @@ exports.new_message_post = [
   // Process after validation and sanitization
   asyncHandler(async (req, res, next) => {
     const result = validationResult(req);
-
+    console.log(req.body.title);
     const message = new Message({
       title: req.body.title,
       timestamp: new Date().toLocaleString('en-US'),
@@ -60,6 +60,6 @@ exports.message_delete_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.message_delete_post = asyncHandler(async (req, res, next) => {
-  await Message.findByIdAndRemove(req.body.messageid);
-  res.redirect('/shop/items');
+  await Message.findOneAndDelete({ _id: req.body.messageid });
+  res.redirect('/messages');
 });

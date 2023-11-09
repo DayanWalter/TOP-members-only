@@ -1,1 +1,16 @@
-DELETE FORM
+<h1><%= title%></h1>
+<div class="formcontainer">
+  <form action="" method="POST">
+    <div class="mb-3">
+      <input
+        id="messageid"
+        class="form-control"
+        type="hidden"
+        name="messageid"
+        value="<%= message._id %>"
+      />
+    </div>
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+  </form>
+</div>
