@@ -37,7 +37,6 @@ exports.new_message_post = [
   asyncHandler(async (req, res, next) => {
     const result = validationResult(req);
 
-    console.log(req.body.title);
     const message = new Message({
       title: req.body.title,
       timestamp: new Date().toLocaleString('en-US'),

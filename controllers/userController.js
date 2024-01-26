@@ -23,7 +23,6 @@ exports.sign_up_get = asyncHandler(async (req, res, next) => {
     user: req.user,
   });
 });
-
 // Sign-Up POST
 exports.sign_up_post = [
   // Validate and sanitize fields
@@ -77,7 +76,6 @@ exports.sign_up_post = [
     });
   }),
 ];
-
 // Display Sign-In
 exports.sign_in_get = asyncHandler(async (req, res, next) => {
   res.render('sign_in', {
@@ -109,7 +107,6 @@ exports.logged_in = asyncHandler(async (req, res, next) => {
 });
 // Display Change status
 exports.change_status_get = asyncHandler(async (req, res, next) => {
-  console.log(req.user);
   res.render('change_status', {
     title: 'Change Status',
     errors: '',

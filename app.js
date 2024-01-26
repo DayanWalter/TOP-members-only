@@ -10,6 +10,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const bcrypt = require('bcryptjs');
+
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
@@ -20,11 +21,13 @@ const indexRouter = require('./routes/index');
 const app = express();
 
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', false);
 
 const mongoDB = process.env.MONGODB_URI || process.env.DEV_DB_URL;
 
+mongoose.set('strictQuery', false);
+
 main().catch((err) => console.log(err));
+
 async function main() {
   await mongoose.connect(mongoDB);
 }
@@ -55,6 +58,7 @@ passport.use(
     }
   })
 );
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -67,6 +71,7 @@ passport.deserializeUser(async (id, done) => {
     done(err);
   }
 });
+
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
